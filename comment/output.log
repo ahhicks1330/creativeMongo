@@ -1,0 +1,11 @@
+nohup: ignoring input
+Connected
+[0mGET / [36m304 [0m5.543 ms - -[0m
+[0mGET /javascripts/comment.js [36m304 [0m1.538 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.617 ms - -[0m
+[0mGET /images/in-store-pickup-cart.jpg [36m304 [0m0.842 ms - -[0m
+[0mGET /comments [36m304 [0m29.045 ms - -[0m
+[0mGET / [36m304 [0m0.353 ms - -[0m
+[0mGET /javascripts/comment.js [36m304 [0m0.639 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m0.247 ms - -[0m
+[0mGET /comments [32m200 [0m8.212 ms - 660[0m
