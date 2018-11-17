@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <title>Shopping List</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script src="javascripts/comment.js"></script>
+    <link href="stylesheets/style.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/in-store-pickup-cart.jpg" type="image/x-icon" />
+
+</head>
+
+<body ng-app="comment" ng-controller="MainCtrl">
+    <div class="jumbotron jumbotron-fluid text-center bg-success text-white">
+        <div class="container">
+            <h1>Shop 'Til You Drop!</h1>
+        </div>
+    </div>
+    <div class="container" style="background: rgba(255, 255, 255, 0.75); border-radius: 10px; padding: 20px;">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Welcome to your online shopping list!</h3>
+                <p>Never forget what you need to buy and from where ever again! Just don't forget to put it on the list to begin with!<br> Sign in to get started!<br><br> Works on mobile, too!</p>
+            </div>
+            <div class="col-sm-4" style="text-align: center">
+
+                <form id="hideForm" action="script.php">
+                    <input type="text" ng-model="user" placeholder="Name" id="user" autofocus>
+                    <input type="password" ng-model="pass" placeholder="Password" id="pass">
+                    <input type="button" value="Submit" onclick="CollapseForm()" style="width: 50%" class="text-center bg-success text-white"></button>
+                </form>
+
+                <div id="commentForm" style="display: none">
+                    <form ng-submit="addComment()" style="margin-top30px;">
+                        <input type="text" ng-model="formContent" placeholder="Store"></input>
+                        <input type="text" ng-model="formItem" placeholder="Item"></input>
+                        <button type="submit" class="text-center bg-success text-white">Add Item</button>
+                    </form>
+                    <div ng-repeat="comment in comments | orderBy: '-title' | filter:user | filter:pass">
+                        <p>
+                            <span class="glyphicon glyphicon-remove" ng-click="delete(comment)" style="font-size: 15px"></span> {{comment.title}} - {{comment.upvotes}}
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-4" style="text-align: center">
+                <button type="submit" onclick="restart()" class="text-center bg-success text-white">Restart</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function CollapseForm() {
+            if (document.getElementById("user").value == undefined) {
+                document.getElementById("user").value = "Dummy";
+            }
+            else if (document.getElementById("user").value == "") {
+                document.getElementById("user").value = "Dummy";
+            }
+            else {
+                var hf = "hideForm";
+                var cf = "commentForm";
+                document.getElementById(hf).style.display = "none";
+                document.getElementById(cf).style.display = "block";
+            }
+        }
+
+        function restart() {
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>
