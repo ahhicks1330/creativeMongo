@@ -24,47 +24,55 @@
 </head>
 
 <body ng-app="comment" ng-controller="MainCtrl">
-    <div class="jumbotron jumbotron-fluid text-center bg-success text-white">
-        <div class="container">
-            <h1>Shop 'Til You Drop!</h1>
+    <div id="header">
+        <div class="jumbotron jumbotron-fluid text-center bg-success text-white">
+            <div class="container">
+                <h1>Shop 'Til You Drop!</h1>
+            </div>
         </div>
     </div>
-    <div class="container" style="background: rgba(255, 255, 255, 0.75); border-radius: 10px; padding: 20px;">
-        <div class="row">
-            <div class="col-sm-4">
-                <h3>Welcome to your online shopping list!</h3>
-                <p>Never forget what you need to buy and from where ever again! Just don't forget to put it on the list to begin with!<br> Sign in to get started!<br><br> Works on mobile, too!</p>
-            </div>
-            <div class="col-sm-4" style="text-align: center">
-
-                <form id="hideForm" action="script.php">
-                    <input type="text" ng-model="user" placeholder="Username" id="user" autofocus>
-                    <input type="password" ng-model="pass" placeholder="Password" id="pass">
-                    <input type="button" value="Submit" onclick="CollapseForm()" style="width: 50%" class="text-center bg-success text-white" id="butt"></button>
-                </form>
-
-                <div id="commentForm" style="display: none">
-                    <button type="submit" onclick="restart()" class="text-center bg-success text-white">Sign In Again</button>
-                    <br><br><br><h5>Add stuff to your list!</5>
-                    <form ng-submit="addComment()" style="margin-top30px;">
-                        <input type="text" ng-model="formContent" placeholder="Store"></input>
-                        <input type="text" ng-model="formItem" placeholder="Item"></input>
-                        <button type="submit" class="text-center bg-success text-white">Add Item</button>
-                    </form>
+    <div id="body">
+        <div class="container" style="background: rgba(255, 255, 255, 0.75); border-radius: 10px; padding: 20px;">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>Welcome to your online shopping list!</h3>
+                    <p>Never forget what you need to buy and from where ever again! Just don't forget to put it on the list to begin with!<br> Sign in to get started!<br><br> Works on mobile, too!</p>
                 </div>
+                <div class="col-sm-4" style="text-align: center">
 
-            </div>
-            <div id="hidediv" class="col-sm-4" style="text-align: center; display: none">
-                <h3>List:</h3>
-                <div style="overflow-y: auto; height: 200px">
-                    <div class="card" ng-repeat="comment in comments | orderBy: '-title' | filter:user | filter:pass">
-                        <p>
-                            <span class="glyphicon glyphicon-remove" ng-click="delete(comment)" style="font-size: 15px"></span> {{comment.title}} - {{comment.upvotes}}
-                        </p>
+                    <form id="hideForm" action="script.php">
+                        <input type="text" ng-model="user" placeholder="Username" id="user" autofocus>
+                        <input type="password" ng-model="pass" placeholder="Password" id="pass">
+                        <input type="button" value="Submit" onclick="CollapseForm()" style="width: 50%" class="text-center bg-success text-white" id="butt"></button>
+                    </form>
+
+                    <div id="commentForm" style="display: none">
+                        <button type="submit" onclick="restart()" class="text-center bg-success text-white">Reset</button>
+                        <br><br><br>
+                        <h5>Add stuff to your list!</5>
+                            <form ng-submit="addComment()" style="margin-top30px;">
+                                <input type="text" ng-model="formContent" placeholder="Store"></input>
+                                <input type="text" ng-model="formItem" placeholder="Item"></input>
+                                <button type="submit" class="text-center bg-success text-white">Add Item</button>
+                            </form>
+                    </div>
+
+                </div>
+                <div id="hidediv" class="col-sm-4" style="text-align: center; display: none">
+                    <h3>List:</h3>
+                    <div style="overflow-y: auto; height: 200px">
+                        <div class="card" ng-repeat="comment in comments | orderBy: '-title' | filter:user | filter:pass">
+                            <p>
+                                <span class="glyphicon glyphicon-remove" ng-click="delete(comment)" style="font-size: 15px"></span> {{comment.title}} - {{comment.upvotes}}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div id="footer" class="bg-success">
+        © 2018 Alexis Hicks
     </div>
     <script type="text/javascript">
         function CollapseForm() {

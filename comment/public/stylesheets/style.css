@@ -1,9 +1,9 @@
 .card {
-  margin: 1rem;
-  background: white;
-  box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
-  border-radius: 24px;
-  overflow: hidden;
+    margin: 1rem;
+    background: white;
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+    border-radius: 24px;
+    overflow: hidden;
 }
 
 h3 {
@@ -38,4 +38,26 @@ button {
     font-size: large;
     border-radius: 24px;
     padding-left: 10px;
+}
+
+#header {
+    padding-bottom: 10px;
+}
+
+#body {
+    padding: 10px;
+    padding-bottom: 60px;
+    /* Height of the footer */
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: large;
+    height: 30px;
+    /* Height of the footer */
 }
